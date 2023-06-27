@@ -6,6 +6,7 @@ Il software **ordina alfabeticamente** tutte le coppie chiave-valore presenti ne
 ## Come utilizzare il software
 Per compilare il progetto basta aprire un terminale all'interno della cartella radice e digitare:
 ```
+npm install
 npm run build
 npm run dev
 ```
