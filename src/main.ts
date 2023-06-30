@@ -1,27 +1,28 @@
 import './style.css'
-import * as cryptoJS from 'crypto-js'
-import * as stringifyOrdered from 'json-stable-stringify'
-
-var btn = document.getElementById("btnCalcHash");
-  btn?.addEventListener("click", function(){
-    var jsonDocumentation: string = (document.getElementById('txtInput') as HTMLInputElement).value;
-    var ignoraCaps: boolean = (document.getElementById('checkIgnoraCaps') as HTMLInputElement).checked;
-    (document.getElementById('txtOutput') as HTMLInputElement).innerHTML = calcHash(jsonDocumentation, ignoraCaps);
-  });
+import { SHA256 } from 'crypto-js'
+import  stringify   from 'json-stable-stringify'
 
 
-function calcHash(jsonDocumentation: string, ignoraCaps: boolean) : string{
+export   function calcHash(jsonDocumentation: string, ignoraCaps: boolean) : string{
   try {
     var documentationUnordered = JSON.parse(jsonDocumentation);
 
-    var toHash: string = stringifyOrdered(documentationUnordered);
+    var toHash: string = stringify(documentationUnordered);
 
     if(ignoraCaps) 
-      toHash = toHash.toLocaleLowerCase();
+      toHash = toHash.toLowerCase();
 
-    return cryptoJS.SHA256(toHash).toString();
+    return SHA256(toHash).toString();
  
   } catch (error: any) {
     return error.toString();
   }
 }
+
+
+
+document.getElementById("btnCalcHash")!.addEventListener("click", function(){
+  var jsonDocumentation: string = (document.getElementById('txtInput') as HTMLInputElement).value;
+  var ignoraCaps: boolean = (document.getElementById('checkIgnoraCaps') as HTMLInputElement).checked;
+  (document.getElementById('txtOutput') as HTMLInputElement).innerHTML = calcHash(jsonDocumentation, ignoraCaps);
+});
