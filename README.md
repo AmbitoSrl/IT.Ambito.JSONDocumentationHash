@@ -3,7 +3,11 @@
 Questo software permette di calcolare in modo facile e veloce l'hash SHA256 di un qualsiasi oggetto JSON. Il suo principale scopo è quello di calcolare e verificare l'unicità della documentazione OpenAPI caricata sul portale Interoperabilità del PDND.
 
 Il software **ordina alfabeticamente** tutte le coppie chiave-valore presenti nel documento JSON e consente di calcolare l'hash ignorando o meno le lettere maiuscole/minuscole all'interno del documento.
-## Come utilizzare il software
+
+## Esempio
+Il servizio è utilizzabile per fare qualche prova a questo link: https://abarchiviazione01.z6.web.core.windows.net/
+
+## Come compilare ed eseguire il software
 Per compilare il progetto basta aprire un terminale all'interno della cartella radice e digitare:
 ```
 npm install
